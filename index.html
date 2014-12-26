@@ -12,8 +12,18 @@
        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
   </head>
+  
   <body>
-  <div id="myCarousel" class="carousel slide">
+  <script>
+(
+    document.getElementById('links').getElementsByTagName('a'),
+    {
+        container: "carousel-slide",
+        carousel: true
+    }
+);
+</script>
+  <div id="myCarousel" class="carousel-slide">
   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
     <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -21,7 +31,7 @@
   </ol>
   <div class ="carousel-inner">
   
-    <div class = "item active">
+    <div class = "item-active">
      <img src ="http://news.bbcimg.co.uk/media/images/79932000/jpg/_79932335_79932334.jpg" alt = "IMAGE1" class="img-responsive">
      <div class = "carousel-caption">
        <h3>IMAGE1</h3>
