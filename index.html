@@ -14,6 +14,25 @@
   </head>
   
   <body>
+   $(function() {
+        /* author: Luca Filosofi * contact: aseptik@gmail.com * http://devilmaycode.it * license: Public * Updated: 27/08/2014 */
+        var animating = false, iXS = 3, $slider = $('.panel-inner'), liW = $slider.find('li:first').width(), liFW = (liW * $slider.find('li').length);
+        $slider.width(liFW);
+        $('.button a').on('click', function(e) {
+            e.preventDefault();
+            if(!animating){
+                var left = Math.abs(parseInt($slider.css('left')));
+                var side = ($(this).data('direction') == 'right')  ? (((left + (liW * iXS)) >= liFW) ? 0 : -(left + liW)) : ((left > 0) ? -(left - liW) : -(liFW - (liW * iXS)));
+                rotate(side);
+            }
+        });
+        var rotate = function(leftY) {
+            if(!animating){
+                animating = true;
+                $slider.stop(true, true).animate({left : leftY}, 500, function(){animating = false;});
+            }
+        }
+    });
   <script>
 (
     document.getElementById('links').getElementsByTagName('a'),
